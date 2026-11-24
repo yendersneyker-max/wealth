@@ -1,0 +1,14 @@
+export type TxType = 'income' | 'expense' | 'transfer'
+export type Transaction = { id:string; date:string; type:TxType; category:string; note:string; amount:number }
+export type Investment = { id:string; name:string; ticker:string; kind:'Acción'|'ETF'; units:number; avgCost:number; currentPrice:number }
+export type Debt = { id:string; name:string; balance:number; monthlyPayment:number; dueDay:number }
+export type Envelope = { id:string; name:string; purpose:string; balance:number; target:number; color:string }
+export type Budget = { category:string; limit:number }
+export type Account = { id:string; name:string; kind:'Cuenta corriente'|'Ahorro'|'Inmueble'|'Otro activo'; balance:number; note:string }
+export type WorthPoint = { month:string; value:number }
+export type Recurring = { id:string; name:string; amount:number; category:string; dueDay:number; kind:'Gasto fijo'|'Deuda'; active:boolean }
+export type Goal = { id:string; name:string; target:number; saved:number; monthlyContribution:number; deadline:string }
+export type Trip = { id:string; name:string; budget:number; spent:number; startDate:string; endDate:string }
+export type MonthClosure = { month:string; amount:number; accountId:string }
+export type Settings = { salarySplit:{name:string;percent:number}[]; monthlyExpenses:number; annualReturn:number; targetMonthlyIncome:number; theme:'luxury'|'ivory'|'ocean'|'plum'|'dark'|'light' }
+export type AppData = { transactions:Transaction[]; investments:Investment[]; debts:Debt[]; envelopes:Envelope[]; budgets:Budget[]; accounts:Account[]; worthHistory:WorthPoint[]; recurring:Recurring[]; goals:Goal[]; trips:Trip[]; monthClosures:MonthClosure[]; budgetPriorities:string[]; planMode:'gasto'|'gasto-ahorro'; categories:string[]; settings:Settings }
